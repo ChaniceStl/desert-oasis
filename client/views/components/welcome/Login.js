@@ -25,6 +25,7 @@ const Login = React.createClass({
 	render() {
 		return(
 			<div>
+				<div className="all-login-info">
 				<div className="login-inputs-container">
 					<p>
 						<input type="text" 
@@ -42,11 +43,11 @@ const Login = React.createClass({
 					</p>
 				</div>
 				<div className="login-button-container">
-					<Link to={`/homepage/${this.state.username}`}><button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+					<Link to={`/homepage/${this.state.username}`}><button>
 					  LOGIN
 					</button></Link>
 				</div>
-
+				</div>
 			</div>
 		)
 	}

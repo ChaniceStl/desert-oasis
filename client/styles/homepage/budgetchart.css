@@ -1,0 +1,40 @@
+.budget-container {
+	display: flex;
+	flex-direction: row;
+	width: 800px;
+	height: auto;
+	background-color: red;
+	border: solid 2px black;
+}
+
+.snap-container {
+	display: flex;
+	flex-direction: column;
+	width: 50%;
+	height: auto;
+	background-color: blue;
+}
+
+.snap-title {
+
+}
+
+.snap-graph {
+
+}
+
+.cash-container {
+	display: flex;
+	flex-direction: column;
+	width: 50%;
+	height: auto;
+	background-color: green;
+}
+
+.cash-title {
+
+}
+
+.cash-graph {
+
+}

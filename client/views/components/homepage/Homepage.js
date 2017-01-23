@@ -4,97 +4,108 @@ import { Link } from 'react-router';
 import $ from 'jquery';
 
 //IMPORT COMPONENTS 
-import IndividualMarket from './IndividualMarket';
+import SnapBudgetChart from './SnapBudgetChart';
+import CashBudgetChart from './CashBudgetChart';
+import MarketInfo from './MarketInfo';
 
 //IMPORT CSS
 import '../../../styles/homepage/homepage.css';
 
 //BUILD COMPONENT
-const Search = React.createClass({
-	getInitialState() {
+const Homepage = React.createClass({
+	getInitialState(){
 		return(
 			{
-				firstName: "",
-				savedMarkets: [],
-				marketName: "",
-				marketAddress: "",
+				lat:'', 
+				lng:'',
+				marketName:'',
+				markets:[], 
+				data:null
 			}
 		)
 	},
-	componentDidMount() {
-		console.log('COMPONENT ABOUT TO MOUNT')
-		console.log('PARAMS: ' + this.props.params.id)
-		var that = this;
+	componentDidMount(){
+		var that=this
 		$.ajax({
-			url: `/api/user/username/${this.props.params.id}`,
-			method: 'GET'
+			url:`/api/user/username/${that.props.params.username}`
 		})
-			.done((data) => {
-				console.log(data);
-				that.setState({ savedMarkets: data.Markets, firstName: data.first_name, })
-			})
+		.done(data => {
+			return (
+				that.setState({data:data, lat:data, markets: data.Markets})
+			)
+		})
+	},
+	generateMarkets() {
+		if (this.state.markets) {
+			return(
+				<div>
+			{this.state.markets.map( function (market, index) {
+				return(
+					<div key={market.id}>
+						<MarketInfo 
+							info={market}/>
+					</div>
+				)
+			})}
+			</div>
+			)
+		} else {
+			return(
+				<div>
+					<button>Search For Markets</button>
+				</div>
+			)
+		}
 	},
 	render() {
 		return(
-			<div>
-			<ol>
-				{this.state.savedMarkets.map(function (market) {
-					return(
-					<li key={market.id}>
-						<br />
-						<p><strong>{market.name}</strong></p>
-					</li>
-					)
-				})}
-			</ol>
-				<div className="homepage-container">
-					
-					<div className="greeting-container">
-						<div className="greeting-photo">
-							PHOTO GOES HERE
-						</div>
-						<div className="greeting-message">
-							Welcome, {this.state.firstName}!
-						</div>
-					</div>
+			    	<div className="homepage-container">
 
-					<div className="treasure-chest-container">
-						<div className="treasure-chest-title">
-							TREASURE CHEST
-						</div>
+			    		<div className="card card-1">
+			    			
+			    			<div className="budget">
+			    				<div className="budget-left">
+			    					<img src="https://s25.postimg.org/43knj2xgf/shopping_cart.png"
+			    						alt="SNAP BALANCE" />
+			    				</div>
+			    				<div className="budget-right">
+			    					<div className="budget-amount">
+			    						$536.96
+			    					</div>
+			    					<div className="budget-title">
+			    						SNAP BUDGET
+			    					</div>
+			    				</div>
+			    			</div>
 
-						<div className="treasure-chest-left">
-							<div className="treasure-chest-left-graph">
-								
-							</div>
-							<div className="treasure-chest-left-title">
-								SNAP
-							</div>
-						</div>
+			    			<div className="cash">
+			    				<div className="cash-left">
+			    					<img src="https://s25.postimg.org/rvtyulzhb/credit_card.png"
+			    						alt="CASH BALANCE" />
+			    				</div>
+			    				<div className="cash-right">
+			    					<div className="cash-amount">
+			    						$200.00
+			    					</div>
+			    					<div className="cash-title">
+			    						CASH BUDGET
+			    					</div>
+			    				</div>
+			    			</div>
 
-						<div className="treasure-chest-right">
-							<div className="treasure-chest-right-graph">
-								
-							</div>
-							<div className="treasure-chest-right-title">
-								CASH
-							</div>
-						</div>
-					</div>
+			    		</div>
 
-					<div className="watering-holes-container">
-						<div className="watering-holes-title-container">
-							YOUR WATERING HOLES
-						</div>
-						<div className="watering-holes-individual-container">
-							
-						</div>
-					</div>
+			    		<div className="card card-1">
+			    			<div className="markets">
 
-				</div>
-			</div>
+			    				{this.generateMarkets()}
+
+			    			</div>
+			    		</div>
+
+			    	</div>
 		)
 	}
-});
+})
 
-export default Search;
+export default Homepage;

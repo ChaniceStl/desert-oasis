@@ -33,7 +33,7 @@ function getUserByUsername(req, res) {
 		where: {
 			user_name: req.params.userName
 		},
-		include: [models.Market]
+		include: [models.Market, models.TreasureChest]
 	})
 	.then(function(user) {
 		console.log('USER: ===>', user)

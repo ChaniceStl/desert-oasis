@@ -4,7 +4,7 @@ import { Chart } from 'react-google-charts';
 //IMPORT CSS
 import '../../../styles/homepage/budgetchart.css';
 
-const SnapBudgetChart = React.createClass({
+const CashBudgetChart = React.createClass({
 	
 	render() {
 		return(
@@ -32,4 +32,4 @@ const SnapBudgetChart = React.createClass({
 	}
 });
 
-export default SnapBudgetChart;
+export default CashBudgetChart;

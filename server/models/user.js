@@ -38,6 +38,7 @@ module.exports = function(sequelize, DataTypes) {
       associate: function(models) {
         User.hasMany(models.Market);
         User.hasMany(models.Location, {as: "Locations"})
+        User.hasMany(models.TreasureChest)
       }
     }
   });

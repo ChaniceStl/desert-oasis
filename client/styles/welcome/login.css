@@ -5,7 +5,7 @@
 */
 
 input {
-	height: 14px;
+	height: 30px;
 	border: 1px solid #C0C0BA;
 	border-radius: 12px;
 	font-size: 85%;
@@ -21,6 +21,14 @@ input {
 
 textarea, select, a { outline: none; }
 
+.all-login-info {
+	width: auto;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 50px;
+}
+
 .login-inputs-container {
 	width: auto;
 	display: flex;
@@ -31,4 +39,15 @@ textarea, select, a { outline: none; }
 .login-button-container {
 	display: flex;
 	justify-content: center;
+}
+
+.all-login-info .login-button-container button {
+	width: 150px;
+	height: 40px;
+	background-color: #1DE9B6;
+	color: white;
+	font-size: 20px;
+	padding: 5px 5px;
+	border-radius: 12px;
+	border: none;
 }

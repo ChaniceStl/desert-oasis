@@ -16,7 +16,7 @@ const router = (
 	<Router history={browserHistory}>
 		<Route path="/" component={AppContainer}>
 			<IndexRoute component={Welcome} />
-			<Route path="/homepage/:id" component={Homepage} />
+			<Route path="/homepage/:username" component={Homepage} />
 		</Route>
 	</Router>
 );

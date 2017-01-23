@@ -3,7 +3,11 @@ const models = require('../server/models');
 
 
 function getBudget(req, res) {
-  models.User.findById(req.params.userId)
+  models.User.findOne({
+    where: {
+      user_name: req.params.userName 
+    }
+  })
   .then(function(user) {
     console.log(user);
     return models.TreasureChest.findOne({
@@ -18,7 +22,11 @@ function getBudget(req, res) {
 }
 
 function addBudget(req, res) {
-  models.User.findById(req.params.userId)
+  models.User.findOne({
+    where: {
+      user_name: req.params.userName 
+    }
+  })
   .then(function(user) {
     return models.TreasureChest.create({
       snapBudget: req.body.snapBudget,
@@ -52,9 +60,10 @@ function updateBudget(req, res) {
 ////////////////
 /////ROUTES/////
 ////////////////
-router.route('/treasure/:userId')
+router.route('/treasure/:userName')
   .get(getBudget)
   .post(addBudget)
+router.route('/treasure/:userId')
   .put(updateBudget)
 
 

@@ -3,62 +3,165 @@
 ####### HOMEPAGE.js ######## 
 ############################
 */
+body {
+  background: #e2e1e0;
+  text-align: center;
+}
+
+.card {
+  background: #fff;
+  border-radius: 2px;
+  display: inline-block;
+  height: auto;
+  margin: 1rem;
+  position: relative;
+  width: 100%;
+}
+
+.card-1 {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.card-1:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
 
 .homepage-container {
-	background-color: purple;
-	display: flex;
-	flex-direction: column;
 	width: 700px;
-	height: auto;
-	margin-top: 25px;
+	margin-top: 10px;
 	margin-left: auto;
 	margin-right: auto;
-}
-
-.greeting-container {
-	display: flex;
-	flex-direction: row;
-	background-color: blue;
-	width: 100%;
-	height: auto;
-	margin-top: 5px;
-	margin-bottom: 10px;
-}
-
-.greeting-photo {
-	width: 200px;
-	border: solid;
-	border-width: 2px;
-	border-color: black;
-	padding: 5px 5px;
-}
-
-.greeting-message {
-	width: 500px;
-	border: solid;
-	border-width: 2px;
-	border-color: black;
-	padding: 5px 5px;
-}
-
-.treasure-chest-container {
-	background-color: green;
 	display: flex;
 	flex-direction: column;
-	margin-top: 10px;
 }
 
+.budget {
+	display: flex;
+	flex-direction: row;
+	width: 660px;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	background-color: #7A1EA1;
+	border-radius: 3px;
+	padding: 10px 10px;
+	color: #ffffff;
+}
 
+.budget-left {
+	display: flex;
+	justify-content: flex-start;
+	align-content: center;
+	width: 200px;
+	height: auto;
+}
 
+.budget-left img {
+	height: 100px;
+	width: auto;
+}
 
+.budget-right {
+	display: flex;
+	flex-direction: column;
+	width: 460px;
+	height: auto;
+}
 
+.budget-amount {
+	display: flex;
+	margin-top: 40px;
+	width: 100%;
+	flex-grow: 1;
+	font-size: 60px;
+	height: 80%;
+	justify-content: flex-end;
+	align-content: center;
+}
 
+.budget-title {
+	display: flex;
+	margin-top: -10px;
+	width: 100%;
+	flex-grow: 1;
+	font-size: 14px;
+	height: 20%;
+	justify-content: flex-end;
+	align-content: center;
+}
 
+.cash {
+	display: flex;
+	flex-direction: row;
+	width: 660px;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	background-color: #691A99;
+	border-radius: 3px;
+	padding: 10px 10px;
+	color: #ffffff;
+}
 
+.cash-left {
+	display: flex;
+	justify-content: flex-start;
+	align-content: center;
+	width: 200px;
+	height: auto;
+}
 
+.cash-left img {
+	height: 100px;
+	width: auto;
+}
 
+.cash-right {
+	display: flex;
+	flex-direction: column;
+	width: 460px;
+	height: auto;
+}
 
+.cash-amount {
+	display: flex;
+	margin-top: 40px;
+	width: 100%;
+	flex-grow: 1;
+	font-size: 60px;
+	height: 80%;
+	justify-content: flex-end;
+	align-content: center;
+}
 
+.cash-title {
+	display: flex;
+	margin-top: -10px;
+	width: 100%;
+	flex-grow: 1;
+	font-size: 14px;
+	height: 20%;
+	justify-content: flex-end;
+	align-content: center;
+}
+
+.markets {
+	display: flex;
+	flex-direction: row;
+	width: 660px;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-radius: 3px;
+	color: #ffffff;
+}
 
 
 
