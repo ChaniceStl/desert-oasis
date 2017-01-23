@@ -2,6 +2,12 @@
 import React from 'react';
 import { Link } from 'react-router';
 import $ from 'jquery';
+import Dialog from 'material-ui/Dialog';
+import FlatButton from 'material-ui/FlatButton';
+import RaisedButton from 'material-ui/RaisedButton';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 //IMPORT COMPONENTS 
 import SnapBudgetChart from './SnapBudgetChart';
@@ -16,6 +22,7 @@ const Homepage = React.createClass({
 	getInitialState(){
 		return(
 			{
+				open: false,
 				lat:'', 
 				lng:'',
 				marketName:'',
@@ -23,6 +30,9 @@ const Homepage = React.createClass({
 				data:null
 			}
 		)
+	},
+	componentWillMount() {
+		injectTapEventPlugin();
 	},
 	componentDidMount(){
 		var that=this
@@ -35,6 +45,12 @@ const Homepage = React.createClass({
 			)
 		})
 	},
+	handleOpen() {
+    this.setState({open: true});
+  },
+  handleClose() {
+    this.setState({open: false});
+  },
 	generateMarkets() {
 		if (this.state.markets) {
 			return(
@@ -58,8 +74,41 @@ const Homepage = React.createClass({
 		}
 	},
 	render() {
+		
+		const actions = [
+      <FlatButton
+        label="Cancel"
+        primary={true}
+        onTouchTap={this.handleClose}
+      />,
+      <FlatButton
+        label="Submit"
+        primary={true}
+        keyboardFocused={true}
+        onTouchTap={this.handleClose}
+      />,
+    ];
 		return(
 			    	<div className="homepage-container">
+
+
+			    	<MuiThemeProvider>
+			    	<div>
+			   <button onTouchTap={this.handleOpen}>FIND NEW MARKETS</button>
+        <FlatButton label="Find New" onTouchTap={this.handleOpen} />
+        <Dialog
+          title="Dialog With Actions"
+          actions={actions}
+          modal={false}
+          open={this.state.open}
+          onRequestClose={this.handleClose}
+        >
+          The actions in this window were passed in as an array of React objects.
+        </Dialog>
+      </div>
+      </MuiThemeProvider>
+
+
 
 			    		<div className="card card-1">
 			    			

@@ -3,6 +3,19 @@
 ####### HOMEPAGE.js ######## 
 ############################
 */
+
+@-webkit-keyframes bluePulse {
+  from { background-color: #007d9a; -webkit-box-shadow: 0 0 9px #333; }
+  50% { background-color: #2daebf; -webkit-box-shadow: 0 0 18px #2daebf; }
+  to { background-color: #007d9a; -webkit-box-shadow: 0 0 9px #333; }
+}
+
+a.blue.button {
+  -webkit-animation-name: bluePulse;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+}
+
 body {
   background: #e2e1e0;
   text-align: center;
